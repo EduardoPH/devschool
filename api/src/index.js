@@ -16,6 +16,7 @@ app.get('/matricula', async (req, resp) => {
     }
 })
 
+
 app.post('/matricula', async (req, resp) => {
 
     try{
