@@ -7,6 +7,7 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 
+
 app.get('/matricula', async (req, resp) => {
     try{
         let r = await db.tb_matricula.findAll()
@@ -49,12 +50,6 @@ app.put('/matricula/:id', async (req, resp) => {
     )
 
     resp.sendStatus(200)
-})
-
-
-
-
-
-
+}) 
 app.listen(process.env.PORT,
     x => console.log(`A PORT ${process.env.PORT} subiu!! :)`))
