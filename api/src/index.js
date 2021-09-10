@@ -51,5 +51,14 @@ app.put('/matricula/:id', async (req, resp) => {
 
     resp.sendStatus(200)
 }) 
+
+app.delete('/matricula/:id', async (req, resp) => {
+    let id = req.params.id
+
+    let r = await db.tb_matricula.destroy({id_matricula}, {where: {id_matricula: id}})
+
+    resp.sendStatus(200)
+})
+
 app.listen(process.env.PORT,
     x => console.log(`A PORT ${process.env.PORT} subiu!! :)`))

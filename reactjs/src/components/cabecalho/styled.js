@@ -11,7 +11,7 @@ const Cabecalho = styled.div`
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        width: 13em;
+        width: 100vh;
     }
 
     .nick span {
