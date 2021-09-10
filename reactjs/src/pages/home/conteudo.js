@@ -8,9 +8,11 @@ export default function conteudo() {
     return (
       <Container>
             <Menu/>
-          <div className="pt2">
+          <div className="pt2-home">
             <Cabecalho/>
-            
+            <div className=""> 
+
+            </div>
           </div>
       </Container>
     )
