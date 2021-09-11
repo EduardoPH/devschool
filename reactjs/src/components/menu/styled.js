@@ -5,6 +5,7 @@ const Menu = styled.div`
     display: flex;
     flex-direction: column;
     width: 17%;
+    height: 100vh;
 
 
     .titulo-menu, .name-gerenciamento, .mn-alunos-menu {
@@ -18,10 +19,27 @@ const Menu = styled.div`
     }
 
     .space-menu {
-        height: 3em;
+        height: 4em;
         background-color: #262626;
     }
 
+    .alunos-menu {
+        background-color: white;
+        
+    }
+
+    .mn-alunos-menu {
+        color: black;
+        margin-left: 2em; 
+    }
+
+    .name-gerenciamento {
+        height:4em;
+    }
+
+    .gerenciamento-menu {
+        align-items: center;
+    }
 `
 
 export {Menu}

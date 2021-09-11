@@ -1,29 +1,33 @@
-import {inputstyle} from './styled.js'
+import {Inputstyle} from './styled.js'
 
 export default function inputs_pt1() {
     return (
-        <inputstyle>
+        <Inputstyle>
             <form> 
+            <div className="pt-inputs">
                 <label> 
-                    Aluno
-                    <input type="text"/>
-                </label>]
-
-                <label> 
-                    Curso
+                    Aluno:
                     <input type="text"/>
                 </label>
 
                 <label> 
-                    Chamada
+                    Curso:
                     <input type="text"/>
                 </label>
+            </div>
 
-                <label> 
-                    Turma
-                    <input type="text"/>
-                </label>
+                <div className="pt-inputs">
+                    <label> 
+                        Chamada:
+                        <input type="text"/>
+                    </label>
+
+                    <label> 
+                        Turma
+                        <input type="text"/>
+                    </label>
+                </div>
             </form>
-        </inputstyle>
+        </Inputstyle>
     )
 }
