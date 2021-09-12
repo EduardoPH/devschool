@@ -10,10 +10,10 @@ app.use(express.json())
 
 app.get('/matricula', async (req, resp) => {
     try{
-        let r = await db.tb_matricula.findAll()
+        let r = await db.tb_matricula.findAll({order: [['id_matricula', 'desc']]})
         resp.send(r)
     }   catch (e){
-        resp.send({error: e.tString()})
+        resp.send({error: "Eroo ao exibir alunos"})
     }
 })
 
@@ -21,43 +21,61 @@ app.get('/matricula', async (req, resp) => {
 app.post('/matricula', async (req, resp) => {
 
     try{
-        let {aluno, turma, curso, chamada} = req.body;
 
-        let r = await db.tb_matricula.create({
+        let p = req.body;
+        let r = await db.tb_matricula.findOne({where: {nr_chamada: p.chamada, nm_turma: p.turma, } })
+       
+
+        if(r != null) {
+            return resp.send({erro:"Aluno ja existe" })
+        }
+
+        let m = await db.tb_matricula.create({
+            nm_aluno: p.aluno,
+            nm_curso: p.curso,
+            nr_chamada: p.chamada,
+            nm_turma: p.turma
+        })
+
+        resp.send(m)
+    }   catch (e){
+        resp.send({erro: "Erro ao inserir aluno"})
+    }
+})
+
+
+app.put('/matricula/:id', async (req, resp) => {
+    
+    try {
+        let {aluno, turma, curso, chamada} = req.body; 
+
+        let r = await db.tb_matricula.update({
             nm_aluno: aluno,
             nm_curso: curso,
             nr_chamada: chamada,
             nm_turma: turma
-        })
+            }, 
+
+            {where: {id_matricula: req.params.id}}
+        )
 
         resp.sendStatus(200)
-    }   catch (e){
-        resp.send({error: e.tString()})
+    } catch {
+        resp.send({erro: "Erro ao alterar aluno"})
     }
-})
-
-app.put('/matricula/:id', async (req, resp) => {
-    let {aluno, turma, curso, chamada} = req.body; 
-
-    let r = await db.tb_matricula.update({
-        nm_aluno: aluno,
-        nm_curso: curso,
-        nr_chamada: chamada,
-        nm_turma: turma
-        }, 
-
-        {where: {id_matricula: req.params.id}}
-    )
-
-    resp.sendStatus(200)
 }) 
 
 app.delete('/matricula/:id', async (req, resp) => {
-    let id = req.params.id
+    
+    try{
 
-    let r = await db.tb_matricula.destroy({id_matricula}, {where: {id_matricula: id}})
+        let r = await db.tb_matricula.destroy({where: {id_matricula: req.params.id}})
 
     resp.sendStatus(200)
+    } catch (e) {
+        resp.send({erro: "deu pau"})
+    }
+
 })
 
 app.listen(process.env.PORT,

@@ -36,14 +36,14 @@ const Container = styled.div`
 
     .novo-aluno{
         font: 500 2em Roboto;
-        margin: 0.1em 0.7em;
+        margin: 0.3em 0.7em;
+        margin-bottom: 1em;
         display: flex;
         flex-direction: row;
-
     }
 
 
-    .titulo-novo-aluno {
+    .titulo-aluno {
         margin: 0em 1em;
         font: 500 1.1em Roboto;
     }
@@ -54,7 +54,6 @@ const Container = styled.div`
 
     .novo-aluno img {
         height: 1.2em;
-        margin: ;
     }
 
     .cadastrar {
@@ -64,6 +63,11 @@ const Container = styled.div`
         border: solid;
         height: 2.8em;
         width: 8em;
+        cursor: pointer;
+    }
+
+    .cadastrar :hover{
+        opacity: 30px ;
     }
 
     th, td {
@@ -99,6 +103,24 @@ const Container = styled.div`
         color: white;
     }
 
+    .bt-functions {
+        background-color: gray;
+        border: solid 0px;
+        border-radius:30px ;
+        padding: 1em;
+        height: 3.3em;
+        visibility: hidden;
+    }
+
+    tr:hover {
+        .bt-functions {
+            visibility: visible;
+        }
+    }
+
+    .cinza {
+        background-color: #f5f5f5;
+    }
 
 
 `

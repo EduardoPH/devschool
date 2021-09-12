@@ -1,4 +1,5 @@
 import { Cabecalho } from './styled.js'
+import Api from '../../services/api'
 
 export default function Cabe(){
     return (
