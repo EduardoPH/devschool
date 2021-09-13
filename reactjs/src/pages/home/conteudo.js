@@ -47,7 +47,6 @@ export default function Conteudo() {
     }
 
     async function inserir() {
-      loading.current.continuousStart();
       if(idAlt == 0) {
         loading.current.continuousStart();
         if(nome.length < 4){
@@ -64,10 +63,12 @@ export default function Conteudo() {
         if(chamada != parseInt(chamada))
           return toast.error('Campo chamada é somente numero') && loading.current.complete();
 
+        if(chamada < 0)
+          return toast.error('Não é possível inserir numeros negativos') && loading.current.complete()
+
         if(!turma || turma.replace == ''){
           return toast.error('Campo turma é obrigatótio') && loading.current.complete();
         }
-
           else{
             let r = await api.inserir(nome, turma, curso, chamada);
             if(r.erro){
