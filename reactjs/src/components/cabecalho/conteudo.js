@@ -1,7 +1,12 @@
 import { Cabecalho } from './styled.js'
 import Api from '../../services/api'
+import Conteudo from '../../pages/home/conteudo.js'
 
-export default function Cabe(){
+const api = new Api()
+export default function Cabe(cont){
+
+    
+
     return (
         <Cabecalho>
             <div className="cb-usuario"> 
@@ -9,8 +14,8 @@ export default function Cabe(){
                 <div className="nick"> Olá, <span> Bruno Oliveira </span> </div>
             </div>
             <div className="botoes-cabecalho"> 
-                <button> <img src="/assets/images/log-out.svg"></img> </button>
-                <button> <img src="/assets/images/Refresh.svg"></img> </button>
+                <button> <img src="/assets/images/log-out.svg" alt=""></img> </button>
+                <button> <img src="/assets/images/Refresh.svg" alt=""></img> </button>
             </div>
         </Cabecalho>
     )
