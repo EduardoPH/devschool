@@ -12,10 +12,19 @@ const Menu = styled.div`
         color: white;
     }
 
+    .titulo-menu {
+        height: 6em;
+        justify-content: center;
+    }
+
     .alunos-menu ,.gerenciamento-menu, .titulo-menu{
         display: flex;
         flex-direction: row;
         align-items: center;
+    }
+
+    .gerenciamento-menu {
+        
     }
 
     .space-menu {
