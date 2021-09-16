@@ -23,7 +23,7 @@ app.post('/matricula', async (req, resp) => {
     try{
 
         let p = req.body;
-        let r = await db.tb_matricula.findOne({where: {nr_chamada: p.chamada, nm_turma: p.turma, } })
+        let r = await db.tb_matricula.create({where: {nr_chamada: p.chamada, nm_turma: p.turma, } })
        
 
         if(r != null) {

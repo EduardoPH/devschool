@@ -6,6 +6,7 @@ const Menu = styled.div`
     flex-direction: column;
     width: 17%;
     height: 100vh;
+    display: inline-block;
 
 
     .titulo-menu, .name-gerenciamento, .mn-alunos-menu {

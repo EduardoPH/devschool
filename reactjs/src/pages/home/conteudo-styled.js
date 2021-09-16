@@ -83,6 +83,16 @@ const Container = styled.div`
         text-align: left;
     }
 
+    
+    
+    .inicio-table {
+        align-items: center;
+        justify-content: space-between;
+
+        background-color: #986CDF;
+        color: white;
+    }
+
     .tabela {
         background-color: white;
         padding: 2em;
@@ -94,14 +104,7 @@ const Container = styled.div`
         overflow-y: scroll;
         height: 2500px;
     }
-    
-    .inicio-table {
-        align-items: center;
-        justify-content: space-between;
 
-        background-color: #986CDF;
-        color: white;
-    }
 
     .bt-functions {
         background-color: gray;

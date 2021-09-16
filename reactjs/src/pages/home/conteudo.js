@@ -47,26 +47,26 @@ export default function Conteudo() {
     }
 
     async function inserir() {
-      if(idAlt == 0) {
+      if(idAlt === 0) {
         loading.current.continuousStart();
         if(nome.length < 4){
           return toast.error('Nome precisa ter no mínimo 4 caracteres') && loading.current.complete();
         }
 
-        if(!curso || curso == '') {
+        if(!curso || curso === '') {
           return toast.error('Campo curso é obrigatótio') && loading.current.complete();
         }
-        if(!chamada || chamada == '') {
+        if(!chamada || chamada === '') {
           return toast.error('Campo chamada é obrigatório') && loading.current.complete();
         }
 
-        if(chamada != parseInt(chamada))
+        if(chamada !== parseInt(chamada))
           return toast.error('Campo chamada é somente numero') && loading.current.complete();
 
         if(chamada < 0)
           return toast.error('Não é possível inserir numeros negativos') && loading.current.complete()
 
-        if(!turma || turma.replace == ''){
+        if(!turma || turma.replace === ''){
           return toast.error('Campo turma é obrigatótio') && loading.current.complete();
         }
           else{
@@ -146,28 +146,39 @@ export default function Conteudo() {
                   <div className="inputs">
                     <Inputstyle>
                       <form> 
-                        <div className="pt-inputs">
+                        <div className="pt1-inputs">
                             <label> 
-                                Aluno:
+                                Nome:
                                 <input type="text" value={nome} onChange={e => setNome(e.target.value)}/>
                             </label>
 
                             <label> 
-                                Curso:
+                                Categoria: 
                                 <input type="text" value={curso} onChange={e => setCurso(e.target.value)}/>
+                            </label>
+
+                            <label> 
+                                Avaliação
+                                <input type="text" value={chamada} onChange={e => setCham(e.target.value)}/>
                             </label>
                         </div>
 
-                        <div className="pt-inputs">
-                            <label> 
-                                Chamada:
-                                <input type="text" value={chamada} onChange={e => setCham(e.target.value)}/>
-                            </label>
+                        <div className="pt2-inputs">
+                          <label> 
+                            Preço DE:
+                            <input type="text" value={turma} onChange={e => setTurma(e.target.value)}/>
+                          </label>
 
-                            <label> 
-                                Turma
-                                <input type="text" value={turma} onChange={e => setTurma(e.target.value)}/>
-                            </label>
+                          <label> 
+                            Preço POR:
+                            <input type="text" value={turma} onChange={e => setTurma(e.target.value)}/>
+                          </label>
+
+                          <label> 
+                            Estoque
+                            <input type="text" value={turma} onChange={e => setTurma(e.target.value)}/>
+                          </label>
+                          
                         </div>
                       </form>
                     </Inputstyle>
