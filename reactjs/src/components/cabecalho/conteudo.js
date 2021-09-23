@@ -1,8 +1,5 @@
 import { Cabecalho } from './styled.js'
-import Api from '../../services/api'
-import Conteudo from '../../pages/home/conteudo.js'
 
-const api = new Api()
 export default function Cabe(cont){
 
     

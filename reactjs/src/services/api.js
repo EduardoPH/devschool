@@ -22,5 +22,6 @@ export default class Api {
 
     async alterar(id, aluno, turma, curso, chamada){
         let r = await api.put(`/matricula/ ${id}`, {aluno, turma, curso, chamada})
+        return r.data
     }
 }

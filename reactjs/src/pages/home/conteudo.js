@@ -17,7 +17,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import React, { useRef } from 'react'
 import LoadingBar from 'react-top-loading-bar'
-import styled from "styled-components"
 
 
 const api = new Api();
@@ -82,6 +81,7 @@ export default function Conteudo() {
 
       } else {
         let r = await api.alterar(idAlt, nome, turma, curso, chamada)
+        console.log(r)
         toast.success('Alterado com sucesso')
         loading.current.complete();
 
@@ -99,6 +99,7 @@ export default function Conteudo() {
           {
             label: "Sim", onClick: async () => {
               let r = await api.apagar(id)
+              console.log(r)
               toast.success('Aluno removido')
               listar()
             },
@@ -141,7 +142,7 @@ export default function Conteudo() {
           <div className="pt2-home">
             <Cabecalho/>
             <div className="info-alunos"> 
-            <div className="nome-aluno"> <img src="/assets/images/Line.svg" alt=""/> <div className="novo-aluno" > {idAlt == 0? "Novo aluno": `Alterando aluno ${idAlt}`} </div> </div>
+            <div className="nome-aluno"> <img src="/assets/images/Line.svg" alt=""/> <div className="novo-aluno" > {idAlt === 0? "Novo aluno": `Alterando aluno ${idAlt}`} </div> </div>
               <div className="form-home"> 
                   <div className="inputs">
                     <Inputstyle>
@@ -183,12 +184,12 @@ export default function Conteudo() {
                       </form>
                     </Inputstyle>
                   </div>
-                  <button className="cadastrar" onClick={inserir}> {idAlt == 0? "Cadastrar": "Alterar"} </button>
+                  <button className="cadastrar" onClick={inserir}> {idAlt === 0? "Cadastrar": "Alterar"} </button>
               </div>
             </div>
             <div className="tabela">
               <div className="novo-aluno">
-                <img src="/assets/images/Line.svg"/>
+                <img src="/assets/images/Line.svg" alt=""/>
                 <div className="titulo-aluno" > Alunos Matriculados </div>
               </div>
               <table className="tabela-ns">
@@ -205,14 +206,14 @@ export default function Conteudo() {
                 </thead>
                 <tbody>
                   {alunos.map((item, i) => 
-                    <tr className={i% 2 == 0? "cinza": "normal"}> 
+                    <tr className={i% 2 === 0? "cinza": "normal"}> 
                       <td> {item.id_matricula} </td>
                       <td title={item.nm_aluno}>  {item.nm_aluno != null && item.nm_aluno.length >= 25? item.nm_aluno.substr(0,25) + "...": item.nm_aluno} </td>
                       <td> {item.nr_chamada} </td>
                       <td> {item.nm_turma}</td>
                       <td> {item.nm_curso} </td>
-                      <td> <button className="bt-functions" onClick={() => alterar(item)}> <img src="/assets/images/edit.svg"/> </button> </td>
-                      <td> <button className="bt-functions" onClick={() => deletar(item.id_matricula)}> <img src="/assets/images/lixo.svg"/> </button> </td>
+                      <td> <button className="bt-functions" onClick={() => alterar(item)}> <img src="/assets/images/edit.svg" alt=""/> </button> </td>
+                      <td> <button className="bt-functions" onClick={() => deletar(item.id_matricula)}> <img src="/assets/images/lixo.svg" alt=""/> </button> </td>
                     </tr>
                   )}
                 </tbody>
